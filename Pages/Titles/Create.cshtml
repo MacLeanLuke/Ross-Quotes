@@ -1,0 +1,49 @@
+@page
+@model RossQuotes.Pages.Titles.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Title</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title.TitleName" class="control-label"></label>
+                <input asp-for="Title.TitleName" class="form-control" />
+                <span asp-validation-for="Title.TitleName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title.AuthorID" class="control-label"></label>
+                <input asp-for="Title.AuthorID" class="form-control" />
+                <span asp-validation-for="Title.AuthorID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title.PublisherID" class="control-label"></label>
+                <input asp-for="Title.PublisherID" class="form-control" />
+                <span asp-validation-for="Title.PublisherID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title.PublishDate" class="control-label"></label>
+                <input asp-for="Title.PublishDate" class="form-control" />
+                <span asp-validation-for="Title.PublishDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

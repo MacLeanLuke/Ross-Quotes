@@ -1,0 +1,52 @@
+@page
+@model RossQuotes.Pages.Quotes.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h2>Edit</h2>
+
+<h4>Quote</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Quote.QuoteID" />
+            <div class="form-group">
+                <label asp-for="Quote.Quotation" class="control-label"></label>
+                <input asp-for="Quote.Quotation" class="form-control" />
+                <span asp-validation-for="Quote.Quotation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.Title" class="control-label"></label>
+                <select asp-for="Quote.TitleID" class="form-control" 
+                        asp-items="@Model.TitleNameSL"></select>
+                <span asp-validation-for="Quote.TitleID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.Page" class="control-label"></label>
+                <input asp-for="Quote.Page" class="form-control" />
+                <span asp-validation-for="Quote.Page" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Quote.Tag" class="control-label"></label>
+                <select asp-for="Quote.TagID" class="form-control" 
+                        asp-items="@Model.TagNameSL"></select>
+                <span asp-validation-for="Quote.TagID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

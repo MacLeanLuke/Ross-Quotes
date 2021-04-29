@@ -1,0 +1,72 @@
+@page
+@model RossQuotes.Pages.Tags.IndexModel
+
+@{
+    ViewData["Title"] = "Tags";
+}
+
+<h2>Tags</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.TagSort"
+                asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Tags[0].TagName)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Tags) 
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TagName)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.TagID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.TagID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.TagID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.Tags.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Tags.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Tags.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Tags.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>

@@ -1,0 +1,98 @@
+@page
+@model RossQuotes.Pages.Titles.IndexModel
+
+@{
+    ViewData["Title"] = "Titles";
+}
+
+<h2>Titles</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.TitleSort"
+                asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Titles[0].TitleName)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.AuthorSort"
+                asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Titles[0].AuthorID)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.PublisherSort"
+                asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Titles[0].PublisherID)
+                </a>
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.PublishDateSort"
+                asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Titles[0].PublishDate)
+                </a>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Titles) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TitleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AuthorID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublisherID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublishDate)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.TitleID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.TitleID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.TitleID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.Titles.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Titles.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Titles.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Titles.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>

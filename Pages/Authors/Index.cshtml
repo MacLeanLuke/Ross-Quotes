@@ -1,0 +1,96 @@
+@page
+@model RossQuotes.Pages.Authors.IndexModel
+
+@{
+    ViewData["Title"] = "Authors";
+}
+
+<h2>Authors</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form asp-page="./Index" method="get">
+    <div class="form-actions no-color">
+        <p>
+            Find by name:
+            <input type="text" name="SearchString" value="@Model.CurrentFilter" />
+            <input type="submit" value="Search" class="btn btn-primary" /> |
+            <a asp-page="./Index">Back to full List</a>
+        </p>
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.NameSort"
+                asp-route-currentFilter="@Model.CurrentFilter">
+                    @Html.DisplayNameFor(model => model.Authors[0].AuthorLastName)
+                </a>
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Authors[0].AuthorFirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Authors[0].AuthorMiddleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Authors[0].AuthorPrefix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Authors[0].AuthorSuffix)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Authors) 
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorLastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorFirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorMiddleName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorPrefix)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AuthorSuffix)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.AuthorID">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.AuthorID">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.AuthorID">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@{
+    var prevDisabled = !Model.Authors.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.Authors.HasNextPage ? "disabled" : "";
+}
+
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Authors.PageIndex - 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @prevDisabled">
+    Previous
+</a>
+<a asp-page="./Index"
+   asp-route-sortOrder="@Model.CurrentSort"
+   asp-route-pageIndex="@(Model.Authors.PageIndex + 1)"
+   asp-route-currentFilter="@Model.CurrentFilter"
+   class="btn btn-primary @nextDisabled">
+    Next
+</a>

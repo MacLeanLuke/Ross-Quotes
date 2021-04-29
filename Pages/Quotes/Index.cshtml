@@ -1,0 +1,55 @@
+@page
+@model RossQuotes.Pages.Quotes.IndexModel
+
+@{
+    ViewData["Title"] = "Quotes";
+}
+
+<h1>Quotes</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Quotes[0].Quotation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quotes[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quotes[0].Page)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quotes[0].Tag)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Quotes)
+{
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quotation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title.TitleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Page)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tag.TagName)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.QuoteID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.QuoteID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.QuoteID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
