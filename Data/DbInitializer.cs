@@ -46,15 +46,11 @@ namespace RossQuotes.Data
 
             var tags = new Tag[]
             {
-                new Tag{TagName="Daily Quiet Time"},
-                new Tag{TagName="Total Life"},
-                new Tag{TagName="Teenagers at Church"},
-                new Tag{TagName="Teenagers away from Church"},
-                new Tag{TagName="Pastors Evangelizing Teenagers"},
-                new Tag{TagName="Parents Evangelizing Teenagers"},
-                new Tag{TagName="Volunteers Evangelizing Teenagers"},
-                new Tag{TagName="Pastors Evangelize Parents"},
-                new Tag{TagName="Evangelize Through Events"}
+                new Tag{TagName="vulputate ut pharetra"},
+                new Tag{TagName="velit ut tortor"},
+                new Tag{TagName="quisque id diamh"},
+                new Tag{TagName="adipiscing bibendum est"},
+                new Tag{TagName="aliquam nulla facilisi"}
             };
 
             context.Tags.AddRange(tags);

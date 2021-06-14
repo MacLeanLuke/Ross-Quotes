@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/lukemaclean/Desktop/AppDev/RazerEntityApps/RossQuotes/RossQuotes.csproj": {}
+    "/Users/lukemaclean/AppDev/dotnet/Ross-Quotes/RossQuotes.csproj": {}
   },
   "projects": {
-    "/Users/lukemaclean/Desktop/AppDev/RazerEntityApps/RossQuotes/RossQuotes.csproj": {
+    "/Users/lukemaclean/AppDev/dotnet/Ross-Quotes/RossQuotes.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/lukemaclean/Desktop/AppDev/RazerEntityApps/RossQuotes/RossQuotes.csproj",
+        "projectUniqueName": "/Users/lukemaclean/AppDev/dotnet/Ross-Quotes/RossQuotes.csproj",
         "projectName": "RossQuotes",
-        "projectPath": "/Users/lukemaclean/Desktop/AppDev/RazerEntityApps/RossQuotes/RossQuotes.csproj",
+        "projectPath": "/Users/lukemaclean/AppDev/dotnet/Ross-Quotes/RossQuotes.csproj",
         "packagesPath": "/Users/lukemaclean/.nuget/packages/",
-        "outputPath": "/Users/lukemaclean/Desktop/AppDev/RazerEntityApps/RossQuotes/obj/",
+        "outputPath": "/Users/lukemaclean/AppDev/dotnet/Ross-Quotes/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/lukemaclean/.nuget/NuGet/NuGet.Config"
@@ -85,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/Cellar/dotnet/5.0.104/libexec/sdk/5.0.104/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/5.0.300/RuntimeIdentifierGraph.json"
         }
       }
     }

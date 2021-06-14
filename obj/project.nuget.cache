@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Ss+GoPNVbu/HbNNHPO0H3yFVIpWRZ1MAn1vAUHDr1ZzNq9DM07SQBH9VhtZgdMPB9/AjM6LNjdjml6bn3MmJxA==",
+  "dgSpecHash": "elqhs+fAq9u4nsQWlwy+vxeosopgyuM36HvsCuur7/Y7gBqnAWRYDaOtVDXi5b8McbqgcuexYMPc0Bp3An3EXA==",
   "success": true,
-  "projectFilePath": "/Users/lukemaclean/Desktop/AppDev/RazerEntityApps/RossQuotes/RossQuotes.csproj",
+  "projectFilePath": "/Users/lukemaclean/AppDev/dotnet/Ross-Quotes/RossQuotes.csproj",
   "expectedPackageFiles": [
     "/Users/lukemaclean/.nuget/packages/humanizer.core/2.8.26/humanizer.core.2.8.26.nupkg.sha512",
     "/Users/lukemaclean/.nuget/packages/microsoft.aspnetcore.diagnostics.entityframeworkcore/5.0.4/microsoft.aspnetcore.diagnostics.entityframeworkcore.5.0.4.nupkg.sha512",
